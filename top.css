@@ -118,6 +118,12 @@ main {
     color: rgb(186, 186, 215);
 
 }
+.box3_title{
+    font-weight: bolder;
+    font-size: larger;
+    padding-left: 20px;
+    padding-top: 13px;
+}
 
 /*フッター*/
 
