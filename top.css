@@ -200,6 +200,7 @@ main {
     font-size: 1em;
     line-height: 1.5;
     margin-bottom:30px;
+    
 }
 .textbox2 {
     width: 85%;
@@ -227,6 +228,7 @@ main {
 .modal_share {
     margin-top: 250px;
     margin-bottom: 25px;
+
 }
 /*チェックボックスの装飾*/
 .checkbox_1 label {
@@ -264,6 +266,8 @@ main {
     padding: 0;
     margin: 0;
     grid-template-columns:repeat(2,1fr);
+    margin-top: 0;
+
 }
 .checkbox_2 {
     display: flex;
@@ -280,6 +284,7 @@ main {
 .mokuji_1{
     margin-top: 0px;
 }
+
 
 
 
@@ -319,3 +324,6 @@ main {
     font-weight: lighter;
 }
 /*間を詰めて微調整して、ローディング画面作る２３時に投稿できるようにしておく投稿できるようにしておくs*/
+
+
+/*完了画面*/
