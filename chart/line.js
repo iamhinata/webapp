@@ -1,5 +1,5 @@
 const ctx = document.getElementById('myChart-bar');
-const MONTHS= [
+const MONTHS = [
     '',
     '2',
     '',
@@ -34,25 +34,25 @@ const MONTHS= [
 ];
 const months = (config) => {
     const cfg = config || {};
-    const count = cfg.count || 12;
+    const count = cfg.count || 30;
     const section = cfg.section;
     const values = [];
     let i, value;
 
     for (i = 0; i < count; ++i) {
-        value = MONTHS[Math.ceil(i) % 12];
+        value = MONTHS[Math.ceil(i) % 30];
         values.push(value.substring(0, section));
     }
 
     return values;
 }
-const labels = months({ count: 10 });
+const labels = months({ count: 17 });
 const data = {
     labels: labels,
     datasets: [{
-        label: 'My First Dataset',
-        data: [1,3,5,7,9,2,7,8,5,3,5,6,7,8,9,6,5,3,2,0,7,4,3,6,5,4,3,2,8,9,6,9],
-        backgroundColor:['#4699ca'],
+        label: 'none',
+        data: [1, 3, 5, 7, 1, 2, 7, 8, 5, 3, 5, 6, 7, 8, 1, 6, 5, 3, 2, 0, 7, 4, 3, 6, 5, 4, 3, 2, 8, 2, 6, 3],
+        backgroundColor: ['#4699ca'],
         borderColor: [
             'rgb(255, 99, 132)',
             'rgb(255, 159, 64)',
@@ -62,16 +62,43 @@ const data = {
             'rgb(153, 102, 255)',
             'rgb(201, 203, 207)'
         ],
-        borderWidth: 1
+        borderWidth: 1,
+
     }]
+
 };
 const config = {
     type: 'bar',
     data: data,
     options: {
+        plugins: {
+            legend: {
+                display: false,
+            }
+        }, //ラベル（グラフのタイトル）を消した
         scales: {
-            y: {
-                beginAtZero: true
+            yAxes: {
+                gridLines: {
+                    drawBorder: false
+                }, //xxx線消そうとしたんだが無理だった
+                beginAtZero: true,
+                ticks: {
+                    callback: function (tick) {
+                        return tick.toString() + 'h'; //y軸の単位をつけた
+                    }
+                }
+            },
+            x: {
+                display: true,
+                stacked: false,
+                gridLines: {
+                    display: false
+                }, //xxx線消そうとしたんだが無理だった
+                ticks: {
+                    max: 30,
+                    min: 0, //xxxx軸全部表記されない、y軸の単位とびとびにならん
+                }
+
             }
         }
     },
