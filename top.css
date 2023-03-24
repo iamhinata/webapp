@@ -146,22 +146,23 @@ main {
     right: 0;
     background: rgba(0, 0, 0, 0.5);
     transition: opacity 200ms;
-    visibility: hidden;
-    opacity: 0;
+    /* visibility: hidden; */
+    /* opacity: 0; */
+    display: none;
 }
 
 .overlays:target {
     /*モーダルを見える*/
-    visibility: visible;
-    opacity: 1;
+    /* visibility: visible; */
+    /* opacity: 1; */
     /*要素の透明度を指定*/
 }
 
 .overlays .cancel {
     
     /* position: absolute; */
-    width: 100%;
-    height: 100%;
+    /* width: 100%; */
+    /* height: 100%; */
     /* cursor: default; */
 }
 
@@ -319,7 +320,7 @@ main {
     margin: 0 0 0 auto;
 }
 
-.close_x {
+.modalClose {
     color: rgb(144, 144, 144);
     font-size: xx-large;
     font-weight: lighter;
