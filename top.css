@@ -119,6 +119,13 @@ main {
 
 }
 
+.box3_title {
+    font-weight: bolder;
+    font-size: larger;
+    padding-left: 20px;
+    padding-top: 13px;
+}
+
 /*フッター*/
 
 .footer {
@@ -139,23 +146,24 @@ main {
     right: 0;
     background: rgba(0, 0, 0, 0.5);
     transition: opacity 200ms;
-    visibility: hidden;
-    opacity: 0;
+    /* visibility: hidden; */
+    /* opacity: 0; */
+    display: none;
 }
 
 .overlays:target {
-    /*モーダルを見えなくする*/
-    visibility: visible;
-    opacity: 1;
+    /*モーダルを見える*/
+    /* visibility: visible; */
+    /* opacity: 1; */
     /*要素の透明度を指定*/
 }
 
 .overlays .cancel {
-    /*どこからでもモーダル消せるよ*/
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    cursor: default;
+    
+    /* position: absolute; */
+    /* width: 100%; */
+    /* height: 100%; */
+    /* cursor: default; */
 }
 
 .modals {
@@ -175,6 +183,7 @@ main {
     display: grid;
     gap: 30px;
 }
+
 .box_right {
     display: grid;
 }
@@ -199,8 +208,10 @@ main {
     background: #eff1f5;
     font-size: 1em;
     line-height: 1.5;
-    margin-bottom:30px;
+    margin-bottom: 30px;
+
 }
+
 .textbox2 {
     width: 85%;
     height: 400%;
@@ -224,10 +235,13 @@ main {
     font-size: smaller;
     font-weight: bold;
 }
+
 .modal_share {
     margin-top: 250px;
     margin-bottom: 25px;
+
 }
+
 /*チェックボックスの装飾*/
 .checkbox_1 label {
     display: flex;
@@ -241,6 +255,7 @@ main {
     background-color: #eff1f5;
     cursor: pointer;
 }
+
 .checkbox_2 label {
     /* display: flex; */
     align-items: center;
@@ -263,8 +278,11 @@ main {
     gap: 10px;
     padding: 0;
     margin: 0;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 0;
+
 }
+
 .checkbox_2 {
     display: flex;
     flex-wrap: wrap;
@@ -274,12 +292,14 @@ main {
 
 }
 
-.box_left_textbox1{
+.box_left_textbox1 {
     height: 85px;
 }
-.mokuji_1{
+
+.mokuji_1 {
     margin-top: 0px;
 }
+
 
 
 
@@ -300,22 +320,72 @@ main {
     margin: 0 0 0 auto;
 }
 
-.close_x {
+.modalClose {
     color: rgb(144, 144, 144);
     font-size: xx-large;
     font-weight: lighter;
 }
 
 /*記録ボタン*/
-.modal_header_button{
+.modal_header_button {
     margin-left: 200px;
     width: 450px;
     height: 60px;
     border-radius: 40px;
-    
+
 }
+
 .modal_header_button_inner {
     font-size: x-large;
     font-weight: lighter;
 }
-/*間を詰めて微調整して、ローディング画面作る２３時に投稿できるようにしておく投稿できるようにしておくs*/
+
+
+/*完了画面*/
+.overlay2 {
+    display: none;
+}
+
+/*カレンダー*/
+h1 {
+    font-size: 18px;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #ddd;
+    padding: 5px;
+    text-align: center;
+}
+
+td:first-child {
+    color: red;
+}
+
+td:last-child {
+    color: royalblue;
+}
+
+/*ローディング*/
+
+.loader {
+    margin: 0 0 2em;
+    height: 100px;
+    width: 20%;
+    text-align: center;
+    padding-left: 350px;
+    padding-top: 60px;
+    /* padding: 1em; */
+    margin: 0 auto 1em;
+    display: inline-block;
+    vertical-align: top;
+}
+
+svg path,
+svg rect {
+    fill: #2866c3;
+}

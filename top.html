@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>自作web-app</title>
     <link rel="stylesheet" href="/top.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
+        integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    <script src="./chart/line.js" defer></script>
+    <script src="./chart/dounat.js" defer></script>
+    <script src="./chart/modal.js" defer></script>
 </head>
 
 <body>
@@ -14,8 +20,9 @@
     <header class="header">
         <div class="header_logo"><img src="./fonts/logo.svg" alt="posse"></div>
         <div class="header_week">4th week</div>
-        <div class="header_button">
-            <a href="#modal" class="header_button_inner">記録・投稿</a>
+        <div class="header_button" id="modal_button">
+            <!-- <a href="#modal" class="header_button_inner">記録・投稿</a> -->
+            <div class="header_button_inner">記録・投稿</div>
         </div>
     </header>
     <!--ヘッダーここまで-->
@@ -40,20 +47,28 @@
                     </li>
                 </ul>
                 <div class="box2">
+                    <canvas id="myChart-bar" width="60" height="50"></canvas>
                 </div>
             </div>
             <div class="box-wrapper2">
-                <div class="box3"></div>
-                <div class="box3"></div>
+                <div class="box3">
+                    <p class="box3_title">学習言語</p>
+                    <canvas id="dounut" width="300" height="350"></canvas>
+                </div>
+                <div class="box3">
+                    <p class="box3_title">学習コンテンツ</p>
+                    <canvas id="dounut2" width="300" height="300"></canvas>
+                </div>
             </div>
         </div>
         <div class="footer">
             <p>
             <p>
             <p>
-                <p>< /p>
-                <p class="footer_1"> 2020年 10月 </p>
-                <p>></p>
+            <p>
+                    <p> ＜ </p>
+                    <p class="footer_1"> 2020年 10月 </p>
+                    <p>＞</p>
         </div>
 
 
@@ -63,13 +78,14 @@
             <div class="modals">
                 <a class="cancel" href="#"></a>
                 <div>
-                    <p class="close"><a href="#" class="close_x">×</a></p>
+                    <p class="close"><div class="modalClose">×</div></p>
                 </div>
                 <div class="modal">
                     <div class="box_left">
-                        <div class="box_left_textbox1">
-                            <label for="" class="mokuji">学習日</label><br>
-                            <input type="text" class="textbox1">
+                        <div class="box_left_textbox1 ">
+                            <label for=" " class="mokuji">学習日</label><br>
+                            <input type="text" class="textbox1 " id="calendar_button">
+
                         </div>
                         <div class="check">
                             <p class="mokuji mokuji_1">学習コンテンツ（複数選択可)</p>
@@ -85,9 +101,9 @@
                                 </label>
                             </label>
                         </div>
-                        <div class="check">
+                        <div class="check check_2">
                             <p class="mokuji">学習言語（複数選択可）</p>
-                            <label for="" class="checkbox_2"> 
+                            <label for="" class="checkbox_2">
                                 <label for="">
                                     <input type="checkbox">HTML
                                 </label>
@@ -123,31 +139,63 @@
                                 <input type="text" class="textbox2">
                             </label>
                         </div>
-                        <div class=" ">
+                        <div class="checkbox_3">
                             <input type="checkbox" class="modal_share">Twitterにシェアする
                         </div>
                     </div>
                 </div>
                 <!--button-->
-                <div class="header_button modal_header_button" >
-                    <a href="#modal" class="header_button_inner modal_header_button_inner">記録・投稿</a>
+                <div class="header_button modal_header_button" id="complete">
+                    <div class="header_button_inner modal_header_button_inner">記録・投稿</div>
                 </div>
             </div>
         </section>
 
+        <!--完了画面-->
+        <section id="complete2" class="overlay overlay2">
+            <div class="modals">
+                <a class="cancel" href="#"></a>
+                <div>
+                    <p class="close"><a href="#" class="close_x">×</a></p>
+                </div>
+                <div>
+                    <div>
+                        AWESOME!
+                    </div>
+                    <div>
+
+                    </div>
+                    <div>
+                        <p>記録・投稿</p>
+                        <p>完了しました</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!--カレンダー-->
+        <!-- <div id="calendar"></div> -->
 
 
-
-
-
-
+        <!--ローディング-->
+        <!-- <section class="loading">
+            <div class="modals">
+            <div class="loader loader--style2" title="1">
+                <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px" height="40px"
+                    viewBox="0 0 50 50" style="enable-background:new 0 0 50 50;" xml:space="preserve">
+                    <path fill="#000"
+                        d="M25.251,6.461c-10.318,0-18.683,8.365-18.683,18.683h4.068c0-8.071,6.543-14.615,14.615-14.615V6.461z">
+                        <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 25 25"
+                            to="360 25 25" dur="0.6s" repeatCount="indefinite" />
+                    </path>
+                </svg>
+            </div>
+        </div>
+        </section> -->
 
     </main>
 </body>
 
 </html>
-
-
-
-<!---->
-<!---->
